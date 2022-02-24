@@ -1,0 +1,25 @@
+
+.cont{
+  background-color: #f0f0f0;
+  color: #243238;
+  height: 570px;
+}
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center p{
+  text-align: center;
+    font-size: 40px;
+}
+.center h3{
+  text-align: center;
+}
+
+.btn{
+  background-color: #ff4f00;
+  color: white;
+}

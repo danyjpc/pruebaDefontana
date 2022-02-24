@@ -1,0 +1,33 @@
+<div class="cont">
+<mat-card  fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px" fxFlex="100" class="content">
+  <mat-card fxFlex="30" class="info">
+    Los criterios de clasificación de los organismos vivos han cambiado a lo largo del tiempo, en esta representación usaremos el sistema de clasificación universal basado en los tres dominios: Eukaryota, Archaea, Bacteria.
+    <br><br>
+    <span class="text-danger">Para interactuar con el árbol de clasificación presione sobre el icono <b>' > '</b>.</span>
+  </mat-card>
+  <mat-card fxFlex="70" class="tree">
+    <div fxLayout="column" fxLayoutAlign="center center"><h2 class="text"><b>Árbol de clasificación</b></h2></div>
+
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <!-- This is the tree node template for leaf nodes -->
+      <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+        <!-- use a disabled button to provide padding for tree leaf -->
+        <button mat-icon-button disabled></button>
+        {{node.name}}
+      </mat-tree-node>
+      <!-- This is the tree node template for expandable nodes -->
+      <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+        <button mat-icon-button matTreeNodeToggle
+                [attr.aria-label]="'Toggle ' + node.name">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        {{node.name}}
+      </mat-tree-node>
+    </mat-tree>
+  </mat-card>
+</mat-card>
+</div>
+
+
